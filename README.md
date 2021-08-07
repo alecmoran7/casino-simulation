@@ -10,44 +10,84 @@ The idea is that anyone can use the program(s) here for generating their own dat
 - [] = Not implemented
 
 ### Roulette strategies (Single zero)
-- [x] *Red & Black*
+- [] **Red & Black**
+: - [?] Data
+: - [?] Program
  
-- [] *Even, Odd*
+- [] **Even, Odd**
+: - [] Data
+: - [] Program
 
-- [] *1-12, 13-24, 25-36*
+- [] **1-12, 13-24, 25-36**
+: - [] Data
+: - [] Program
 
-- [] *1-18, 18-36*
+- [] **1-18, 18-36**
+: - [] Data
+: - [] Program
 
-- [] *2:1 rows 1,2,3*
+- [] **2:1 rows 1,2,3**
+: - [] Data
+: - [] Program
 
-- [x] *Bet single number only* 
+- [] **Bet single number only** 
+: - [] Data
+: - [] Program
 
-- [] *Bet zero only*
+- [] **Bet zero only**
+: - [?] Data
+: - [?] Program
 
 ### Blackjack strategies (@ 3:2 payout)
 - [?] Hold at no less than 11,12,13,14,15,16,17,18,19,20,21
+: - [] Data
+: - [] Program
 
 ### Craps strategies
-- [] *Pass line*
+- [] **Pass line**
+: - [] Data
+: - [] Program
 
-- [] *Don't pass line*
+- [] **Don't pass line**
+: - [] Data
+: - [] Program
 
-- [?] *Field*
+- [?] **Field**
+: - [?] Data
+: - [?] Program
 
-- [] *Any seven*
+- [] **Any seven**
+: - [] Data
+: - [] Program
 
-- [] *Any craps*
+- [] **Any craps**
+: - [] Data
+: - [] Program
 
-- [] *Two/Three/Hard6/Hard4/Hard10/Hard8/Eleven/Twelve*
+- [] **Two/Three/Hard6/Hard4/Hard10/Hard8/Eleven/Twelve**
+: - [] Data
+: - [] Program
 
-- [] *Come*
+- [] **Come**
+: - [] Data
+: - [] Program
 
-- [] *Don't Come*
+- [] **Don't Come**
+: - [] Data
+: - [] Program
 
-- [] *Place 4,5,6,8,9,10*
+- [] **Place 4,5,6,8,9,10**
+: - [] Data
+: - [] Program
 
-- [] *Lay 4,5,6,8,9,10*
+- [] **Lay 4,5,6,8,9,10**
+: - [] Data
+: - [] Program
 
-- [] *Pass Line w/odds*
+- [] **Pass Line w/odds**
+: - [] Data
+: - [] Program
 
-- [] *Don't Pass w/odds*
+- [] **Don't Pass w/odds**
+: - [] Data
+: - [] Program
