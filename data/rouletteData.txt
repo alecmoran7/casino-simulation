@@ -1,0 +1,40 @@
+# Roulette Generated Data
+
+## For overall 1:1 payout after all rounds completed (win double your initial amount or lose it all)
+## Player selection from options and roll outcomes are random seeds.
+
+### Red & Black
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### Even & Odd
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### 1-12, 13-24, 25-36
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### 1-18, 18-36
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### 2:1 rows 1,2,3
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### Bet single number only
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
+### Bet zero only (should be similar to "bet single number only")
+- Min observed percentage @ 100k samples :
+- Max observed percentage @ 100k samples :
+- Average percentage :
+
