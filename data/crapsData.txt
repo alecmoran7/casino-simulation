@@ -1,0 +1,66 @@
+# Craps Generated Data
+
+## For overall 1:1 payout after all rounds completed (win double your initial amount or lose it all)
+## Player selection from options and roll outcomes are random seeds.
+
+The numbers below are approximate and are calculated by running the program 10 times each with 100k samples (100,000 players with at least 1-10 million games total) and measuring a total of 10 different percentage scores, actual percentage values can vary by small percentages (+/- 0.3%)
+
+### Pass line
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Don't pass line
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Field
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Any seven
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Any craps
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Two/Three/Hard6/Hard4/Hard10/Hard8/Eleven/Twelve
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Come
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Don't Come
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Place 4,5,6,8,9,10
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Lay 4,5,6,8,9,10
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Pass Line w/odds
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
+
+### Don't Pass w/odds
+- Min observed win percentage @ 100k samples:
+- Max observed win percentage @ 100k samples:
+- Average percentage:
