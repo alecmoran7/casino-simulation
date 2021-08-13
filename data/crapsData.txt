@@ -6,14 +6,14 @@
 The numbers below are approximate and are calculated by running the program 10 times each with 100k samples (100,000 players with at least 1-10 million games total) and measuring a total of 10 different percentage scores, actual percentage values can vary by small percentages (+/- 0.3%)
 
 ### Pass line
-- Min observed win percentage @ 100k samples:
-- Max observed win percentage @ 100k samples:
-- Average win percentage:
+- Min observed win percentage @ 100k samples: 42.42 %
+- Max observed win percentage @ 100k samples: 44.02 %
+- Average win percentage: 43.211 %
 
 ### Don't pass line
-- Min observed win percentage @ 100k samples:
-- Max observed win percentage @ 100k samples:
-- Average win percentage:
+- Min observed win percentage @ 100k samples: 42.57 %
+- Max observed win percentage @ 100k samples: 43.94 %
+- Average win percentage: 43.292 %
 
 ### Field
 - Min observed win percentage @ 100k samples: 33.88 %
