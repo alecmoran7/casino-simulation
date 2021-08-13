@@ -28,9 +28,9 @@ The idea is that anyone can use the program(s) here for generating their own dat
 - [?] Hold at no less than 11,12,13,14,15,16,17,18,19,20,21
 
 ### Craps strategies
-- [] *Pass line*
+- [x] *Pass line*
 
-- [] *Don't pass line*
+- [x] *Don't pass line*
 
 - [x] *Field*
 
