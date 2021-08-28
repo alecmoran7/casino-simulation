@@ -17,8 +17,6 @@ def main():
         while betType not in betOptions:
             betType = input("Please enter a betType (options are field, pass, dontpass): ")
 
-
-
     sampleSize = 10000
     numPlayers = sampleSize
     startingCash = 100
@@ -41,6 +39,7 @@ def main():
     print("------------------------------------")
     print("Final Results (Craps):")
     print("Total number of simulated players: " + str(sampleSize))
+    print("Starting money: $ " + str(startingCash) + " | Wager Amount: $ " + str(wagerAmount))
     print("Total number of bets made: " + str(numGames))
     print("Average number of games needed to reach a complete or win/loss of money: " + str(numGames/sampleSize))
     print("Total number of wins: " + str(numWins) + ". Total number of losses: " + str(numLosses))
@@ -56,8 +55,6 @@ def evalBet(resultNum, currentCash, comeoutRoll, betType, wagerAmount, thePoint)
         return int(passLine(resultNum, currentCash, comeoutRoll, wagerAmount, thePoint))
     elif betType == "dontpass":
         return int(dontPassLine(resultNum, currentCash, comeoutRoll, wagerAmount, thePoint))
-
-
     else:
         print("betType is actually: " + str(betType))
         exit("well thats not good")
@@ -67,27 +64,19 @@ def startPlaying(setNumber, startingCash, goalAmount, wagerAmount, betType):
     currentCash = startingCash
     comeoutRoll = True
     thePoint = 0
-#     print(type(currentCash))
-#     print(type(goalAmount))
-#     exit()
     while currentCash != 0 and currentCash < goalAmount:
         if currentCash < 0:
             exit("CurrentCash somehow got to " + str(currentCash))
         resultNum = random.choice(diceRolls)
-#         print("Player #" + str(setNumber) +" has $" + str(currentCash) + " and just rolled a " + str(resultNum))
         currentCash = evalBet(resultNum, currentCash, comeoutRoll, betType, wagerAmount, thePoint)
         if comeoutRoll == True:
-#             print("Come out roll was a " + str(resultNum))
             thePoint = resultNum
             if resultNum == 2 or resultNum == 3 or resultNum == 12 or resultNum == 7 or resultNum == 11:
                 comeoutRoll = True # A craps or lucky 7/11 was rolled
             else:
                 comeoutRoll = False
-
         else:
-#             print("Additional roll: " + str(resultNum) + ", Come roll is a " + str(thePoint))
             if resultNum == thePoint or resultNum == 7:
-#                 print("Successfully rolled the come (or seven)")
                 comeoutRoll = True
             else:
                 comeoutRoll = False
@@ -96,7 +85,7 @@ def startPlaying(setNumber, startingCash, goalAmount, wagerAmount, betType):
         winLossStats.append(1)
     else:
         winLossStats.append(0)
-    if (setNumber % 100 == 0):
+    if (setNumber % 1000 == 0):
         print("Working... (" + str((setNumber/numPlayers) / 100)+ "%)")
 
 if __name__ == "__main__":
