@@ -8,35 +8,41 @@ The numbers below are approximate and are calculated by running the program 10 t
 ### Red & Black
 - Min observed percentage @ 100k samples : 43.076 %
 - Max observed percentage @ 100k samples : 43.597 %
-- Average percentage : 43.3385 %
+- Average win percentage : 43.3385 %
+- Average house advantage: 6.662 %
 
 ### Even & Odd (zero is not included in even bets)
 - Min observed percentage @ 100k samples :
 - Max observed percentage @ 100k samples :
-- Average percentage :
+- Average win percentage :
+- Average house advantage: 
 
 ### 1-12, 13-24, 25-36
 - Min observed percentage @ 100k samples :
 - Max observed percentage @ 100k samples :
-- Average percentage :
+- Average win percentage :
+- Average house advantage: 
 
 ### 1-18, 18-36
 - Min observed percentage @ 100k samples :
 - Max observed percentage @ 100k samples :
-- Average percentage :
+- Average win percentage :
+- Average house advantage: 
 
 ### 2:1 rows 1,2,3
 - Min observed percentage @ 100k samples :
 - Max observed percentage @ 100k samples :
-- Average percentage :
+- Average win percentage :
+- Average house advantage: 
 
 ### Bet single number only
 - Min observed percentage @ 100k samples : 44.648 %
 - Max observed percentage @ 100k samples : 45.139 %
-- Average percentage : 44.88366 %
+- Average win percentage : 44.88366 %
+- Average house advantage: 5.116 %
 
 ### Bet zero only (should be similar to "bet single number only")
 - Min observed percentage @ 100k samples :
 - Max observed percentage @ 100k samples :
-- Average percentage :
-
+- Average win percentage :
+- Average house advantage: 
