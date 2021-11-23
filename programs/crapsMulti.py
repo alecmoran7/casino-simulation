@@ -1,14 +1,44 @@
 import random
 import sys
+import threading
 from crapsBets import *
+
+sampleSize = 10000
+numPlayers = sampleSize
+startingCash = 100
+wagerAmount = 25
+goalAmount = 200
+numWins = 0
+numLosses = 0
+
+class myThread (threading.Thread):
+   def __init__(self, threadID, betType):
+      threading.Thread.__init__(self)
+      self.threadID = threadID
+      self.betType = betType
+      self.sampleSize = sampleSize
+   def run(self):
+      global startingCash
+      global goalAmount
+      global sampleSize
+      global wagerAmount
+      print("Starting Thread #" + str(self.threadID))
+      for x in range(1,sampleSize + 1):
+          startPlaying(x, startingCash, goalAmount, wagerAmount, self.betType, self.threadID)
 
 winLossStats = []
 numGames = 0
 diceRolls = [2,3,3,4,4,4,5,5,5,5,6,6,6,6,6,7,7,7,7,7,7,8,8,8,8,8,9,9,9,9,10,10,10,11,11,12]
 betOptions = ["field", "pass","dontpass"]
-numPlayers = 1
 
 def main():
+    global sampleSize, numPlayers, startingCash, wagerAmount, goalAmount, numWins, numLosses, winLossStats, numGames, diceRolls, betOptions
+    startingSample = sampleSize
+
+    betType = ""
+    numThreads = 6
+    if len(sys.argv) > 2:
+        numThreads = int(sys.argv[2])
     if len(sys.argv) > 1:
         betType = sys.argv[1]
     else:
@@ -17,17 +47,22 @@ def main():
         while betType not in betOptions:
             betType = input("Please enter a betType (options are field, pass, dontpass): ")
 
-    sampleSize = 10000
-    numPlayers = sampleSize
-    startingCash = 100
-    wagerAmount = 25
-    goalAmount = 200
+    allThreads = []
+    # Create new threads
+    for i in range(numThreads):
+        newThread = myThread (i, betType)
+        allThreads.append(newThread)
+        newThread.start()
 
-    numWins = 0
-    numLosses = 0
+    numThreads = 0
+    for t in allThreads:
+        numThreads = numThreads + 1
+        print("Thread " + str(t.threadID) + " is waiting")
+        t.join()
+        print("Thread " + str(t.threadID) + " has finished")
+    print("All threads have finished")
 
-    for x in range(1,sampleSize + 1):
-        startPlaying(x, startingCash, goalAmount, wagerAmount, betType)
+    sampleSize = sampleSize * numThreads
 
     for i in winLossStats:
         if i == 0:
@@ -37,7 +72,7 @@ def main():
 
     print("")
     print("------------------------------------")
-    print("Final Results (Craps):")
+    print("Final Results (Craps): " + str(betType) + " bets only.")
     print("Total number of simulated players: " + str(sampleSize))
     print("Starting money: $ " + str(startingCash) + " | Wager Amount: $ " + str(wagerAmount))
     print("Total number of bets made: " + str(numGames))
@@ -59,8 +94,8 @@ def evalBet(resultNum, currentCash, comeoutRoll, betType, wagerAmount, thePoint)
         print("betType is actually: " + str(betType))
         exit("well thats not good")
 
-def startPlaying(setNumber, startingCash, goalAmount, wagerAmount, betType):
-    global numGames
+def startPlaying(setNumber, startingCash, goalAmount, wagerAmount, betType, threadID):
+    global numGames, numPlayers
     currentCash = startingCash
     comeoutRoll = True
     thePoint = 0
@@ -85,8 +120,8 @@ def startPlaying(setNumber, startingCash, goalAmount, wagerAmount, betType):
         winLossStats.append(1)
     else:
         winLossStats.append(0)
-    if (setNumber % 1000 == 0):
-        print("Working... (" + str((setNumber/numPlayers) / 100)+ "%)")
+    if (setNumber % (sampleSize*(0.1)) == 0):
+        print("Thread " + str(threadID) + " Working... (" + str((setNumber * 100) / sampleSize)+ "%)")
 
 if __name__ == "__main__":
     main()
