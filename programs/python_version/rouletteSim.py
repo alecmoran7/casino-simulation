@@ -6,14 +6,18 @@ numGames = 0
 
 def main():
 
-    print("Please enter a playstyle:")
-    print("Enter 1 for Red & Black bets only (high odds, low risk,, 1-to-1 payout)")
-    print("Enter 2 for one number bets only (low odds, high risk, 36-to-1 payout (BIG WIN))")
-    inputStrategy = input()
+    if len(sys.argv) > 1:
+        inputStrategy = str(sys.argv[1])
+    else:
+        print("Please enter a playstyle:")
+        print("Enter 1 for Red & Black bets only (high odds, low risk,, 1-to-1 payout)")
+        print("Enter 2 for one number bets only (low odds, high risk, 36-to-1 payout (BIG WIN))") 
+        inputStrategy = input()
     strategyType = "Red and Black bets only" if inputStrategy == "1" else ""
     strategyType = "Single number bets only" if inputStrategy == "2" else ""
+    
     if inputStrategy != "1" and inputStrategy != "2":
-        print("Input was not one of the valid options, please restart the program and try again.")
+        print("Input was not one of the valid options -> " + str(inputStrategy)  + ", please restart the program and try again.")
         exit()
 
     sampleSize = 100000
