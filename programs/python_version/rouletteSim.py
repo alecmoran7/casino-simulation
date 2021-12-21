@@ -5,7 +5,7 @@ winLossStats = []
 numGames = 0
 
 def main():
-
+    
     if len(sys.argv) > 1:
         inputStrategy = str(sys.argv[1])
     else:
@@ -15,7 +15,7 @@ def main():
         inputStrategy = input()
     strategyType = "Red and Black bets only" if inputStrategy == "1" else ""
     strategyType = "Single number bets only" if inputStrategy == "2" else ""
-    
+
     if inputStrategy != "1" and inputStrategy != "2":
         print("Input was not one of the valid options -> " + str(inputStrategy)  + ", please restart the program and try again.")
         exit()
@@ -25,7 +25,7 @@ def main():
     wagerAmount = 10
     goalAmount = 100
 
-    if inputStrategy == "2": #Have at least 50 rounds to get a larger payout
+    if inputStrategy == "2": #Have at least 50 bets before running out of money, since the chances of winning are 1/37 in one-number only bets.
         startingCash = 100
         wagerAmount = 2
         goalAmount = 200
@@ -68,15 +68,10 @@ def startBettingOneNum(setNumber, startingCash, goalAmount, wagerAmount):
             currentCash += wagerAmount*36
         else:
             currentCash -= wagerAmount
-        #print("You bet on " + str(myBet) + " and the result was " + str(resultNum));
-        #currentCash += wagerAmount if myBet == resultNum else wagerAmount*-1
         numGames += 1
-    #print("result of game #" + str(setNumber) + " remaining cash: " + str(currentCash))
     if currentCash >= goalAmount:
-        # print("Player #" + str(setNumber) + " was a winner! They ended up with $" + str(currentCash) + " in their pocket!")
         winLossStats.append(1)
     else:
-        # print("Player #" + str(setNumber) + " unfortunately lost all their cash.")
         winLossStats.append(0)
 
 
@@ -93,15 +88,10 @@ def startBettingRedBlack(setNumber, startingCash, goalAmount, wagerAmount):
             currentCash += wagerAmount
         else:
             currentCash -= wagerAmount
-        #print("You bet on " + str(myBet) + " and the result was " + str(resultNum));
-        #currentCash += wagerAmount if myBet == resultNum else wagerAmount*-1
         numGames += 1
-    #print("result of game #" + str(setNumber) + " remaining cash: " + str(currentCash))
     if currentCash == goalAmount:
-        # print("Player #" + str(setNumber) + " was a winner! They doubled their starting cash.")
         winLossStats.append(1)
     else:
-        # print("Player #" + str(setNumber) + " unfortunately lost all their cash.")
         winLossStats.append(0)
 
 
