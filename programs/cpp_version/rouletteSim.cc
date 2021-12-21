@@ -7,7 +7,6 @@ using namespace std;
 int numGames;
 
 int startBettingRedBlack(int startingCash, int goalAmount, int wagerAmount){   
-     
     int currentCash = startingCash;
     while (currentCash!= 0 && currentCash < goalAmount){
         int myBet = rand() % 36 + 1;
@@ -48,19 +47,21 @@ int startBettingOneNum(int startingCash, int goalAmount, int wagerAmount){
         return 0;
     }
     else {
-        // clog << "This should be a win" << endl;
         return 1;
     }
 }
 
 int main(int argc, char ** argv){
-
-    cout << "argc is " << argc << endl;
-    cout << "*argv is " << *argv << endl;
-    // cout << "**argv is " << **argv << endl;
-    // cout << "&argv is " << &argv << endl;
+    
+    // DEBUG program parameters
+    // clog << "argc is " << argc << endl;
+    // clog << "*argv is " << *argv << endl;
+    // // clog << "**argv is " << **argv << endl;
+    // // clog << "&argv is " << &argv << endl;
 
     char strategyType = -1;
+
+    // If no betting style is used in the program parameters (./rouletteSim [#]), ask them to input one
     if (argc != 2){
         cout << "Please enter a playstyle:" << endl;
         cout << "Enter 1 for Red & Black bets only (high odds, low risk,, 1-to-1 payout)" << endl;
@@ -70,7 +71,9 @@ int main(int argc, char ** argv){
     else {
         strategyType = *argv[1] - '0';
     }
-    cout << "strategyType is " << strategyType << endl;
+
+    // DEBUG input for strategyType
+    // cout << "strategyType is " << strategyType << endl;
 
     int sampleSize = 100000;
     int startingCash = 50;
@@ -78,16 +81,17 @@ int main(int argc, char ** argv){
     int goalAmount = 100;
     string playStyle = "";
     
+    // Set the betting parameters based on what strategy the user has selected
     switch (strategyType){
         case 0:
-            sampleSize = 1000000000;
+            sampleSize = 10000000;
             startingCash = 50;
             wagerAmount = 10;
             goalAmount = 100;
             playStyle = "Red and black bets only";
             break;
         case 1:
-            sampleSize = 1000000000;
+            sampleSize = 10000000;
             startingCash = 100;
             wagerAmount = 5;
             goalAmount = 200;
@@ -95,15 +99,14 @@ int main(int argc, char ** argv){
             break;
     }
 
-    // int allResults[sampleSize];
     int numWins = 0;
     int numLosses = 0;
-    
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
 
-    /* using nano-seconds instead of seconds */
+    // Generating a new random value every nano-second instead of every second
     srand((time_t)ts.tv_nsec);
+
     int nextResult = 0;
     for (int i = 0; i < sampleSize; i++){
         switch (strategyType){
@@ -123,14 +126,12 @@ int main(int argc, char ** argv){
                 break;
             case 1:
                 ++numWins;
-                // clog << "got a win" << endl;
                 break;
             default:
                 clog << "ERROR other option detected -> " << nextResult << endl;
                 exit(1);
         }
     }
-
 
     cout << endl;
     cout << "------------------------------------" << endl;
@@ -142,9 +143,6 @@ int main(int argc, char ** argv){
     cout << "Total number of wins: " << numWins << ". Total number of losses: " << numLosses << endl;
     double winPercentage = double(numWins) / double(sampleSize);
     cout << "Win percentage = " << winPercentage * 100 << "%" << endl;
-
-    
-
 
     return 0;
 }
