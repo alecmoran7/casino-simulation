@@ -12,17 +12,17 @@ The idea is that anyone can use the program(s) here for generating their own dat
 ### Roulette strategies (Single zero)
 - [x] *Red & Black*
  
-- [] *Even, Odd*
+- [x] *Even, Odd*
 
-- [] *1-12, 13-24, 25-36*
+- [x] *1-12, 13-24, 25-36*
 
-- [] *1-18, 18-36*
+- [x] *1-18, 18-36*
 
-- [] *2:1 rows 1,2,3*
+- [x] *2:1 rows 1,2,3*
 
 - [x] *Bet single number only* 
 
-- [] *Bet zero only*
+- [x] *Bet zero only*
 
 ### Blackjack strategies (@ 3:2 payout)
 - [?] Hold at no less than 11,12,13,14,15,16,17,18,19,20,21
