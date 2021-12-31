@@ -2,27 +2,36 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Dice.cc"
+#include "Dice.h"
+
 class Game {
 
-    public:
-        static enum betType {passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome};
-        static enum gameState {comeOut, activeGame};
-        static int startingCash;
-        static int wagerAmount;
-        static int goalCash;
-        static betType strategy;
-        static gameState currentGameState;
-        static Dice dice;
+public:
+    enum betType {
+        passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
+    };
+    enum gameState {
+        comeOut, activeGame
+    };
+    static int startingCash;
+    static int wagerAmount;
+    static int goalCash;
+    static int numBets;
+    static betType strategy;
+    static gameState currentGameState;
+    static Dice dice;
 
-        Game(betType inputStrategy, int startAmount, int goalAmount);
+    Game();
 
-        gameState getGameState(gameState currentGameState);
+    Game(betType inputStrategy, int startAmount, int goalAmount);
 
-        void setGameState(gameState inputGameState);
+    gameState getGameState(gameState currentGameState);
 
-        int playCraps();
+    void setGameState(gameState inputGameState);
+
+    int playCraps();
 
 
 };
+
 #endif

@@ -8,9 +8,12 @@
 using namespace std;
 
 class Dice {
-    public:
-        static int possibleRolls[];
-        int roll();
+public:
+    static int possibleRolls[];
+
+    Dice();
+
+    int roll();
 };
 
 #endif
