@@ -206,8 +206,7 @@ int playComeOut(int currentCash, int wagerAmount, int diceRoll, Game::betType st
             if (pointEstablished(diceRoll)){
                 currentCash = playThePoint(currentCash, wagerAmount, diceRoll, Game::strategy);
             }
-
         }
-
-        return currentCash;
+        bool goalAmountAchieved = (currentCash == goalAmount) ? true : false;
+        return goalAmountAchieved;
     };
