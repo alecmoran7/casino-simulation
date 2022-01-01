@@ -3,20 +3,24 @@
 //
 
 #include "Player.h"
-
+#include <iostream>
 using namespace std;
 
-Player::Player(betType strategy, int startingCash, int goalCash) {
+Player::Player(int strategyInt, int startingCash, int goalCash) {
+//    clog << "Initializing player " << endl;
     this->startingCash = startingCash;
     this->goalCash = goalCash;
-    this->strategy = strategy;
-    this->game = Game(Game::strategy, startingCash, goalCash);
+    this->strategyInt = strategyInt;
+    game = Game(strategyInt, startingCash, goalCash);
+//    clog << "player Finished initializing " << endl;
 }
 
-void playStrategy(){
-    Player::wasSuccessful = Player::game.playCraps();
+Player::~Player(){}
+
+void Player::playStrategy(){
+    wasSuccessful = game.playCraps();
 }
 
-bool getResult(){
+bool Player::getResult(){
     return Player::wasSuccessful;
 }

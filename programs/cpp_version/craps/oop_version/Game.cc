@@ -8,38 +8,74 @@
 //    enum gameState {comeOut, activeGame};
 //    betType strategy;
 //    gameState currentGameState;
+//    gameState currentGameState;
 //    Dice dice;
 
+#include <iostream>
 using namespace std;
 
-Game::Game(betType strategy, int startingCash, int goalCash) {
-    this->strategy = strategy;
-    this->startingCash = startingCash;
-    this->goalCash = goalCash;
-    numBets = 0;
+Game::Game(){
+    Game(0, 100, 200);
 }
 
-Game::gameState getGameState() {
+Game::Game(int strategyInt, int startAmount, int goalAmount) {
+    this->startingCash = startAmount;
+    this->goalCash = goalAmount;
+    this->numBets = 0;
+    this->wagerAmount = (int)((goalAmount - startAmount)/2);
+    // Set the betting parameters based on what strategy the user has selected
+    switch (strategyInt) {
+        case 0:
+            this->strategy = passLine;
+            break;
+        case 1:
+            this->strategy = dontPass;
+            break;
+        case 2:
+            this->strategy = fieldDouble;
+            break;
+        case 3:
+            this->strategy = fieldTriple;
+            break;
+        case 4:
+            this->strategy = anySeven;
+            break;
+        case 5:
+            this->strategy = anyCraps;
+            break;
+        case 6:
+            this->strategy = comeOnly;
+            break;
+        case 7:
+            this->strategy = dontCome;
+            break;
+        default:
+            exit(2);
+    }
+//    clog << "Game finished initializing" << endl;
+}
+
+Game::gameState Game::getGameState() {
     return Game::currentGameState;
 }
 
-void setGameState(Game::gameState inputGameState) {
+void Game::setGameState(Game::gameState inputGameState) {
     Game::currentGameState = inputGameState;
-};
+}
 
-bool rolledPass(int diceRoll) {
+bool Game::rolledPass(int diceRoll) {
     if ((diceRoll == 7) || (diceRoll == 11)) {
         return true;
     } else return false;
 }
 
-bool rolledCraps(int diceRoll) {
+bool Game::rolledCraps(int diceRoll) {
     if ((diceRoll == 2) || (diceRoll == 3) || (diceRoll == 12)) {
         return true;
     } else return false;
 }
 
-int rollField(int diceRoll, int fieldMultiplier) {
+int Game::rollField(int diceRoll, int fieldMultiplier) {
     int pM = 0; // pm is payoutMultiplier
     switch (diceRoll) {
         case 2:
@@ -68,12 +104,15 @@ int rollField(int diceRoll, int fieldMultiplier) {
     return pM;
 }
 
-int playThePoint(int currentCash, int wagerAmount, int diceRoll, Game::betType strategy) {
+int Game::playThePoint(int currentCash, int wagerAmount, int diceRoll, Game::betType strategy) {
     int fieldResult = 0;
     int thePoint = diceRoll;
     diceRoll = -1;
-    while ((diceRoll != thePoint) || diceRoll != 7) {
-        diceRoll = Game::dice.roll();
+    while ((diceRoll != thePoint) && diceRoll != 7) {
+//        clog << "ptp1" << endl;
+        diceRoll = dice.roll();
+//        clog << "diceRoll is " << diceRoll << endl;
+//        clog << "ptp2" << endl;
         bool rolledSeven = (diceRoll == 7) ? true : false;
         bool rolledThePoint = (diceRoll == thePoint) ? true : false;
         switch (strategy) {
@@ -128,14 +167,21 @@ int playThePoint(int currentCash, int wagerAmount, int diceRoll, Game::betType s
 }
 
 
-int playComeOut(int currentCash, int wagerAmount, int diceRoll, Game::betType strategy) {
+int Game::playComeOut(int currentCash, int wagerAmount, int diceRoll, Game::betType strategy) {
+//    clog << "parameter wagerAmount is: " << wagerAmount << endl;
     bool crapsRolled = rolledCraps(diceRoll);
     bool passRolled = rolledPass(diceRoll);
+//    clog << "crapsRolled: " << crapsRolled << endl;
+//    clog << "passRolled: " << passRolled << endl;
     int fieldResult = 0;
     switch (strategy) {
         case Game::passLine:
+//            clog << "currentCash before alter: " << currentCash << endl;
+//            clog << "wagerAmount is: " << wagerAmount << endl;
+
             currentCash -= (crapsRolled) ? wagerAmount : 0;
             currentCash += (passRolled) ? wagerAmount : 0;
+//            clog << "currentCash after alter: " << currentCash << endl;
             break;
         case Game::dontPass:
             if (diceRoll == 12) {
@@ -181,7 +227,7 @@ int playComeOut(int currentCash, int wagerAmount, int diceRoll, Game::betType st
     return currentCash;
 }
 
-bool pointEstablished(int firstDiceRoll) {
+bool Game::pointEstablished(int firstDiceRoll) {
     switch (firstDiceRoll) {
         case 2:
         case 3:
@@ -203,16 +249,23 @@ bool pointEstablished(int firstDiceRoll) {
 }
 
 // Returns true if the player reaches their goal amount of winnings, Returns false if the player lost all their money
-bool playCraps() {
-    int currentCash = Game::startingCash;
-    int goalAmount = Game::goalCash;
-    int wagerAmount = Game::wagerAmount;
-    setGameState(Game::comeOut);
-    while (currentCash != 0 || currentCash < goalAmount) {
-        int diceRoll = Game::dice.roll();
-        currentCash = playComeOut(currentCash, wagerAmount, diceRoll, Game::strategy);
+bool Game::playCraps() {
+    int currentCash = this->startingCash;
+    int goalAmount = this->goalCash;
+    int wagerAmount = this->wagerAmount;
+//    clog << "this->wagerAmount is: " << this->wagerAmount << endl;
+
+    setGameState(this->comeOut);
+    while (currentCash > 0 && currentCash < goalAmount) {
+//        clog << "currentCash is " << currentCash  << " goalAmount is " << goalAmount << endl;
+        int diceRoll = dice.roll();
+//        clog << "diceRoll is " << diceRoll << endl;
+        currentCash = playComeOut(currentCash, wagerAmount, diceRoll, strategy);
+//        clog << "currentCash after comeout is " << currentCash << endl;
         if (pointEstablished(diceRoll)) {
-            currentCash = playThePoint(currentCash, wagerAmount, diceRoll, Game::strategy);
+//            clog << "pc4" << endl;
+            currentCash = playThePoint(currentCash, wagerAmount, diceRoll, strategy);
+//            clog << "pc5" << endl;
         }
     }
     bool goalAmountAchieved = (currentCash == goalAmount) ? true : false;

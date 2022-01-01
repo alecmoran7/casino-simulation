@@ -9,17 +9,17 @@
 
 class Player {
 public:
-    static int startingCash;
-    static int goalCash;
-    enum betType {
-        passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
-    };
-    static betType strategy;
-    static Game game;
-    static bool wasSuccessful;
+    int startingCash;
+    int goalCash;
+//    enum betType {
+//        passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
+//    };
+    int strategyInt;
+    Game game;
+    bool wasSuccessful;
 
-    Player(betType inputStrategy, int startAmount, int goalAmount);
-
+    Player(int strategyInt, int startAmount, int goalAmount);
+    ~Player();
     void playStrategy();
 
     bool getResult();

@@ -9,21 +9,21 @@
 
 class Datapool{
 public:
-    static int numPlayers;
-    static double goalRatio;
-    static int startingCash;
-    static int goalCash;
+    int numPlayers;
+    double goalRatio;
+    int startingCash;
+    int goalCash;
     enum betType{
         passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
     };
-    static betType strategy;
+    int strategyInt;
     static bool allGameResults[];
-    static int numWins;
-    static int numLosses;
+    int numWins;
+    int numLosses;
     static int numBets;
-    static double winRatio;
+    double winRatio;
 
-    Datapool(int numPlayers, int startingCash, double goalRatio, betType strategy);
+    Datapool(int numPlayers, int startingCash, double goalRatio, int strategyInt);
 
     void gatherData();
 

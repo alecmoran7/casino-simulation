@@ -13,24 +13,34 @@ public:
     enum gameState {
         comeOut, activeGame
     };
-    static int startingCash;
-    static int wagerAmount;
-    static int goalCash;
-    static int numBets;
-    static betType strategy;
-    static gameState currentGameState;
-    static Dice dice;
+    int startingCash;
+    int wagerAmount;
+    int goalCash;
+    int numBets;
+    betType strategy;
+    gameState currentGameState;
+    Dice dice;
 
     Game();
+    Game(int strategyInt, int startAmount, int goalAmount);
 
-    Game(betType inputStrategy, int startAmount, int goalAmount);
-
-    gameState getGameState(gameState currentGameState);
+    gameState getGameState();
 
     void setGameState(gameState inputGameState);
 
-    int playCraps();
+    bool rolledPass(int diceRoll);
 
+    bool rolledCraps(int diceRoll);
+
+    int rollField(int diceRoll, int fieldMultiplier);
+
+    int playThePoint(int currentCash, int wagerAmount, int diceRoll, betType strategy);
+
+    int playComeOut(int currentCash, int wagerAmount, int diceRoll, betType strategy);
+
+    bool pointEstablished(int firstDiceRoll);
+
+    bool playCraps();
 
 };
 

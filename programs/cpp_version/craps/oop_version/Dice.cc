@@ -1,14 +1,22 @@
 #include "Dice.h"
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
 
-int Dice::possibleRolls[] = {2,3,3,4,4,4,5,5,5,5,6,6,6,6,6,7,7,7,7,7,7,8,8,8,8,8,9,9,9,9,10,10,10,11,11,12};
 
 //int arraySize = sizeof(Dice::possibleRolls);
-
-int Dice::roll(){
+Dice::Dice(){
     struct timespec ts;
     clock_gettime(CLOCK_MONOTONIC, &ts);
     srand((time_t)ts.tv_nsec);
-    int arraySize = sizeof(Dice::possibleRolls)/sizeof(Dice::possibleRolls[0]);
+}
+
+int Dice::roll(){
+    int arraySize = sizeof(possibleRolls)/sizeof(possibleRolls[0]);
+//    int randResult = rand() ;
+//    clog << "randResult is " << randResult << endl;
+//    clog << "arraySize is " << arraySize << endl;
     int diceRoll = possibleRolls[rand() % arraySize];
+//    clog << "@ diceRoll is " << diceRoll << endl;
     return diceRoll;
 }

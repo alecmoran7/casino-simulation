@@ -5,9 +5,9 @@
 #include "Datapool.h"
 
 using namespace std;
-enum Strategy {
-    passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
-};
+//enum Strategy {
+//    passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
+//};
 
 int main(int argc, char *argv[]) {
 
@@ -44,42 +44,44 @@ int main(int argc, char *argv[]) {
         cerr << "Exception, invalid input specified -> " << E << endl;
     }
 
-    Strategy strategy;
+//    Strategy strategy;
 
     // Set the betting parameters based on what strategy the user has selected
-    switch (strategyInt) {
-        case 0:
-            strategy = passLine;
-            break;
-        case 1:
-            strategy = dontPass;
-            break;
-        case 2:
-            strategy = fieldDouble;
-            break;
-        case 3:
-            strategy = fieldTriple;
-            break;
-        case 4:
-            strategy = anySeven;
-            break;
-        case 5:
-            strategy = anyCraps;
-            break;
-        case 6:
-            strategy = comeOnly;
-            break;
-        case 7:
-            strategy = dontCome;
-            break;
-        default:
-            cerr << "Error invalid betType found --> " << strategyInt << ", options are [0-7]. " << endl;
-            exit(1);
-    }
-
-    Datapool datapool = Datapool(numSamples, startingCash, goalMultiplier, Datapool::strategy);
-    datapool.gatherData();
-    datapool.printResults();
+//    switch (strategyInt) {
+//        case 0:
+//            strategy = passLine;
+//            break;
+//        case 1:
+//            strategy = dontPass;
+//            break;
+//        case 2:
+//            strategy = fieldDouble;
+//            break;
+//        case 3:
+//            strategy = fieldTriple;
+//            break;
+//        case 4:
+//            strategy = anySeven;
+//            break;
+//        case 5:
+//            strategy = anyCraps;
+//            break;
+//        case 6:
+//            strategy = comeOnly;
+//            break;
+//        case 7:
+//            strategy = dontCome;
+//            break;
+//        default:
+//            cerr << "Error invalid betType found --> " << strategyInt << ", options are [0-7]. " << endl;
+//            exit(1);
+//    }
+    clog << "datapool1" << endl;
+    Datapool dataPool = Datapool(numSamples, startingCash, goalMultiplier, strategyInt);
+    clog << "datapool2" << endl;
+    dataPool.gatherData();
+    clog << "datapool3" << endl;
+    dataPool.printResults();
     return 0;
 
 }

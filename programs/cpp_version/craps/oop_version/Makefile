@@ -1,16 +1,19 @@
+NAME = craps_oop
+
 # the compiler: gcc for C program, define as g++ for C++
 CC = g++
 
 # compiler flags:
 #  -Wall  - this flag is used to turn on most compiler warnings
 #  -c     - this flag is used to skip the linking stage
-CFLAGS = -Wall -c
+#  -fsyntax-only - this flag is used to skip making precompiled header files for faster compiling
+CFLAGS = -Wall -g -std=c++11
 
 
 # find cpp files in subdirectories
 #SOURCES := $(shell find . -name '*.cc')
 
-OBJECTS := $(shell find . -name '*.o')
+OBJECTS := main.o Datapool.o Player.o Game.o Dice.o
 
 
 # find headers
@@ -21,23 +24,26 @@ TARGET := run
 
 all: $(TARGET)
 
-$(TARGET): main.o Datapool.o Player.o Game.o Dice.o
-	$(CC) $(CFLAGS) -o ($TARGET) main.o Datapool.o Player.o Game.o Dice.o
+#$(TARGET): main.o Datapool.o
+#	$(CC) $(CFLAGS) -o $(TARGET) main.cc
 
-main.o: main.cc Datapool.h
-	$(CC) $(CFLAGS) -c main.cc Datapool.h
+main.o: main.cc
+	$(CC) $(CFLAGS) -c main.cc
+#
+Datapool.o: Player.o
+	$(CC) $(CFLAGS) -c Datapool.cc
+#
+Player.o: Game.o
+	$(CC) $(CFLAGS) -c Player.cc
+#
+Game.o: Dice.o
+	$(CC) $(CFLAGS) -c Game.cc
+#
+Dice.o: Dice.cc
+	$(CC) $(CFLAGS) -c Dice.cc
 
-Datapool.o: Datapool.cc Datapool.h Player.h
-	$(CC) $(CFLAGS) -c Datapool.cc Datapool.h Player.h
-
-Player.o: Player.cc Player.h Game.h
-	$(CC) $(CFLAGS) -c Player.cc Player.h Game.h
-
-Game.o: Game.cc Game.h Dice.h
-	$(CC) $(CFLAGS) -c Game.cc Game.h Dice.h
-
-Dice.o: Dice.cc Dice.h
-	$(CC) $(CFLAGS) -c Dice.cc Dice.h
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
 
 clean:
 	$(RM) $(OBJECTS)
