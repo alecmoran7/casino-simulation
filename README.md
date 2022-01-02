@@ -2,6 +2,8 @@
 
 This respository will contain raw programs, data created from said programs, and possibly a full GUI application that estimates house advantage (what percentage of the your bet goes directly towards the casino), as well as the probability of winning in blackjack, craps, and roulette based on different factors including but not limited to: the amount of money you have, your wager amount, what your goal cash amount is, and how big of a virtual sample size (how many simulated players to test your strategy with) to use to simulate the the accuracy of the objective probability of walking away with your target cash amount.
 
+To ensure the estimations reported are as close to real-world accuracy as possible, the C++ version of every simulation program will include a shuffle,dice-roll, or other random-choice distribution percentage that shows how closely the random numbers used to decide the game's winning numbers resemble a true random distribution.
+
 There are programs in both python and C++, originally the programs were written in python for simplicity's sake but since the majority of these programs run in anywhere from O(nlogn) to O(n^2) time, this was considered time consuming with large sample sizes so I decided to redesign everything using C++ and classes to significantly reduce runtime 100-fold to generate larger samples of data more efficiently.
 
 Raw data will be added to the respective game's .txt file under /data as the programs are finished and a significantly large accurate data sample is created from it.
