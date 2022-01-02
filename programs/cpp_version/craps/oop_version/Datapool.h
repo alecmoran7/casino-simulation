@@ -6,6 +6,7 @@
 #define DATAPOOL_H
 
 #include "Player.h"
+#include <vector>
 
 class Datapool{
 public:
@@ -22,12 +23,21 @@ public:
     int numLosses;
     static int numBets;
     double winRatio;
+    vector<int> allRolls;
+    int numRolls[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
+    int totalNumRolls;
+    double rollPercentage[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
+    double distAccuracy;
+
 
     Datapool(int numPlayers, int startingCash, double goalRatio, int strategyInt);
 
-    void gatherData();
+    void gatherPlayerData();
+
+    void analyzeDiceData();
 
     void printResults();
+
 
 };
 

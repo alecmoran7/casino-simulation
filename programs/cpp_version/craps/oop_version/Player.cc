@@ -22,5 +22,6 @@ void Player::playStrategy(){
 }
 
 bool Player::getResult(){
+    allRolls = game.dice.allRolls;
     return Player::wasSuccessful;
 }

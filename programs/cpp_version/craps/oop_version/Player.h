@@ -6,6 +6,7 @@
 #define PLAYER_H
 
 #include "Game.h"
+#include <vector>
 
 class Player {
 public:
@@ -17,6 +18,8 @@ public:
     int strategyInt;
     Game game;
     bool wasSuccessful;
+    vector<int> allRolls;
+
 
     Player(int strategyInt, int startAmount, int goalAmount);
     ~Player();

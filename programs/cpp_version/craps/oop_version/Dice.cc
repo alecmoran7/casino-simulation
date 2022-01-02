@@ -17,6 +17,7 @@ int Dice::roll(){
 //    clog << "randResult is " << randResult << endl;
 //    clog << "arraySize is " << arraySize << endl;
     int diceRoll = possibleRolls[rand() % arraySize];
+    allRolls.push_back(diceRoll);
 //    clog << "@ diceRoll is " << diceRoll << endl;
     return diceRoll;
 }
