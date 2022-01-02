@@ -1,8 +1,10 @@
 # Roulette, Blackjack, and Craps: a Simulation and Analysis tool
 
-This respository will contain programs, data created from said programs, and possibly a GUI application that estimates house advantage (what percentage of the your bet goes directly towards the casino), as well as the probability of winning in blackjack, craps, and roulette based on user input including but not limited to: the amount of money you have, the amount you wager per game, and how big of a virtual sample size (how many simulated players to test your strategy with) to use to simulate the the accuracy of the objective probability of walking away with your target cash amount.
+This respository will contain raw programs, data created from said programs, and possibly a full GUI application that estimates house advantage (what percentage of the your bet goes directly towards the casino), as well as the probability of winning in blackjack, craps, and roulette based on different factors including but not limited to: the amount of money you have, your wager amount, what your goal cash amount is, and how big of a virtual sample size (how many simulated players to test your strategy with) to use to simulate the the accuracy of the objective probability of walking away with your target cash amount.
 
-The idea is that anyone can use the program(s) here for generating their own data and take a look at our collection of data to get a big picture look at what the best and worst strategies are based upon raw data that was generated from these programs.
+There are programs in both python and C++, originally the programs were written in python for simplicity's sake but since the majority of these programs run in anywhere from O(nlogn) to O(n^2) time, this was considered time consuming with large sample sizes so I decided to redesign everything using C++ and classes to significantly reduce runtime 100-fold to generate larger samples of data more efficiently.
+
+Raw data will be added to the respective game's .txt file under /data as the programs are finished and a significantly large accurate data sample is created from it.
 
 ## Strategies
 - - [x] = Completed
@@ -10,6 +12,7 @@ The idea is that anyone can use the program(s) here for generating their own dat
 - [] = Not implemented
 
 ### Roulette strategies (Single zero)
+
 - [x] *Red & Black*
  
 - [x] *Even, Odd*
