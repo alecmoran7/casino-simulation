@@ -22,7 +22,8 @@ Game::Game(int strategyInt, int startAmount, int goalAmount) {
     this->startingCash = startAmount;
     this->goalCash = goalAmount;
     this->numBets = 0;
-    this->wagerAmount = (int)((goalAmount - startAmount)/2);
+    int potentialWager = (int)(goalAmount - startAmount);
+    this->wagerAmount = (potentialWager > startAmount) ? startAmount : potentialWager;
     // Set the betting parameters based on what strategy the user has selected
     switch (strategyInt) {
         case 0:
