@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
         numSamples = stoi(argv[1]);
         strategyInt = stoi(argv[2]);
         startingCash = atoi(argv[3]);
-        goalMultiplier = atoi(argv[4]);
+        goalMultiplier = stod(argv[4]);
 
     }
     catch (string E) {
