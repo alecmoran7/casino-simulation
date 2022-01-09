@@ -1,3 +1,0 @@
-/Users/alecmoran/CLionProjects/casino-simulation/programs/cpp_version/craps/oop_version/CMakeFiles/casino_simulation.dir
-/Users/alecmoran/CLionProjects/casino-simulation/programs/cpp_version/craps/oop_version/CMakeFiles/edit_cache.dir
-/Users/alecmoran/CLionProjects/casino-simulation/programs/cpp_version/craps/oop_version/CMakeFiles/rebuild_cache.dir
