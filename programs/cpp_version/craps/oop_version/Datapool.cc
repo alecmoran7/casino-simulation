@@ -23,17 +23,13 @@ void Datapool::gatherPlayerData(){
         nextPlayer.playStrategy();
         allGameResults[i] = nextPlayer.getResult();
         if (allGameResults[i] == true){
-//            clog << "Player" << i << " won" << endl;
             ++numWins;
         }
         else {
-//            clog << "Player" << i << " lost" << endl;
             ++numLosses;
         }
         for (int i = 0; i < nextPlayer.allRolls.size(); i++){
             int nextRoll = nextPlayer.allRolls[i];
-//            clog << "nextRoll is " << nextRoll << endl << flush;
-//            clog << "allRolls["<< nextRoll << "] is " << numRolls[nextRoll] << endl << flush;
             numRolls[nextRoll]++;
             totalNumRolls++;
         }
@@ -43,7 +39,6 @@ void Datapool::gatherPlayerData(){
 
 void Datapool::analyzeDiceData() {
     for (int i = 2; i <= 12; i++){
-//        numRolls[i] = allRolls.at(i);
         int fracNumerator = 6 - abs(7-i);
         rollPercentage[i] = 100.00 * (1.00 - abs(1.00 - (double)(numRolls[i])/(double)(totalNumRolls) / (double)(fracNumerator/36.0)));
         distAccuracy += rollPercentage[i];
