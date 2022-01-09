@@ -2,6 +2,7 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <random>
 
 
 //int arraySize = sizeof(Dice::possibleRolls);
@@ -12,12 +13,8 @@ Dice::Dice(){
 }
 
 int Dice::roll(){
-    int arraySize = sizeof(possibleRolls)/sizeof(possibleRolls[0]);
-//    int randResult = rand() ;
-//    clog << "randResult is " << randResult << endl;
-//    clog << "arraySize is " << arraySize << endl;
-    int diceRoll = possibleRolls[rand() % arraySize];
+    shuffle(possibleRolls.begin(), possibleRolls.end(), default_random_engine(rand()));
+    int diceRoll = possibleRolls[rand() % 36];
     allRolls.push_back(diceRoll);
-//    clog << "@ diceRoll is " << diceRoll << endl;
     return diceRoll;
 }
