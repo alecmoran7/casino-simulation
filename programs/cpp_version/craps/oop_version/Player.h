@@ -12,14 +12,10 @@ class Player {
 public:
     int startingCash;
     int goalCash;
-//    enum betType {
-//        passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
-//    };
     int strategyInt;
     Game game;
     bool wasSuccessful;
     vector<int> allRolls;
-
 
     Player(int strategyInt, int startAmount, int goalAmount);
     ~Player();
