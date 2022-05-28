@@ -3,9 +3,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include <random>
+#include <algorithm>
 
-
-//int arraySize = sizeof(Dice::possibleRolls);
 Dice::Dice(){
 	struct timespec ts;
 	clock_gettime(CLOCK_MONOTONIC, &ts);
