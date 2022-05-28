@@ -24,9 +24,9 @@ class Datapool{
 		static int numBets;
 		double winRatio;
 		vector<int> allRolls;
-		int numRolls[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
-		int totalNumRolls;
-		double rollPercentage[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
+		int numRolls[13] = {0,0,0,0,0,0,0,0,0,0,0,0,0};
+		int totalNumRolls = 0;
+		double rollPercentage[13] = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 		double distAccuracy;
 
 
