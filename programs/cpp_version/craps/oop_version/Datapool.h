@@ -9,34 +9,34 @@
 #include <vector>
 
 class Datapool{
-public:
-    int numPlayers;
-    double goalRatio;
-    int startingCash;
-    int goalCash;
-    enum betType{
-        passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
-    };
-    int strategyInt;
-    static bool allGameResults[];
-    int numWins;
-    int numLosses;
-    static int numBets;
-    double winRatio;
-    vector<int> allRolls;
-    int numRolls[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
-    int totalNumRolls;
-    double rollPercentage[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
-    double distAccuracy;
+	public:
+		int numPlayers;
+		double goalRatio;
+		int startingCash;
+		int goalCash;
+		enum betType{
+			passLine, dontPass, fieldDouble, fieldTriple, anySeven, anyCraps, comeOnly, dontCome
+		};
+		int strategyInt;
+		static bool allGameResults[];
+		int numWins;
+		int numLosses;
+		static int numBets;
+		double winRatio;
+		vector<int> allRolls;
+		int numRolls[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
+		int totalNumRolls;
+		double rollPercentage[13] = {0,0,0,0,0,0,0,0,0,0,0,0, 0};
+		double distAccuracy;
 
 
-    Datapool(int numPlayers, int startingCash, double goalRatio, int strategyInt);
+		Datapool(int numPlayers, int startingCash, double goalRatio, int strategyInt);
 
-    void gatherPlayerData();
+		void gatherPlayerData();
 
-    void analyzeDiceData();
+		void analyzeDiceData();
 
-    void printResults();
+		void printResults();
 
 
 };

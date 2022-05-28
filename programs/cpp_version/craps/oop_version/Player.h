@@ -9,19 +9,19 @@
 #include <vector>
 
 class Player {
-public:
-    int startingCash;
-    int goalCash;
-    int strategyInt;
-    Game game;
-    bool wasSuccessful;
-    vector<int> allRolls;
+	public:
+		int startingCash;
+		int goalCash;
+		int strategyInt;
+		Game game;
+		bool wasSuccessful;
+		vector<int> allRolls;
 
-    Player(int strategyInt, int startAmount, int goalAmount);
-    ~Player();
-    void playStrategy();
+		Player(int strategyInt, int startAmount, int goalAmount);
+		~Player();
+		void playStrategy();
 
-    bool getResult();
+		bool getResult();
 };
 
 #endif //PLAYER_H
