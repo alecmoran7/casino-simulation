@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 	// If no betting style is used in the program parameters (./rouletteSim [#]), ask them to input one
 	if (argc < 4) {
 		cerr
-			<< "Program format is as follows $ ./main [# of players (integer)] [strategy # (integer)] [starting dollar amount (integer)] [minimum winning ratio (Double, ex. 2 for doubling money)]"
+			<< "Program format is as follows $ ./run [# of players (integer)] [strategy # (integer)] [starting dollar amount (integer)] [minimum winning ratio (Double, ex. 2 for doubling money)]"
 			<< endl;
 		cerr << "Strategy numbers are as follows:" << endl;
 		cerr << " 0 for pass line" << endl;
